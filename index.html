@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+.login{
+top: 20%;
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+ <div class="login">
+	<h1>DIABETES MELITTUS PREDICTION</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('y_predict')}}" method="post">
+    	<input type="text" name="Preganancy" placeholder="Preganancy" required="required" />
+        <input type="text" name="Plasma" placeholder="Plasma" required="required" />
+		<input type="text" name="Blood Pressure" placeholder="Blood Pressure" required="required" />
+		<input type="text" name="Skin Thickness" placeholder="Skin Thickness" required="required" />
+		<input type="text" name="Insulin Test" placeholder="Insulin Test" required="required" />
+		<input type="text" name="Mass" placeholder="Mass" required="required" />
+		<input type="text" name="Pedigree" placeholder="Pedigree" required="required" />
+		<input type="text" name="Age" placeholder="Age" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+ <div class="alert alert-danger" role="alert">
+  {{ prediction_text }}
+</div>
+
+
+</body>
+</html>
+
